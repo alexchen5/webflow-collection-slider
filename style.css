@@ -1,0 +1,11 @@
+[wfcollection-slider-container] .w-dyn-list {
+	overflow: hidden;
+}
+[wfcollection-slider-container] .w-dyn-items {
+  white-space: nowrap;
+  height: 100%;
+}
+[wfcollection-slider-container] .w-dyn-item {
+	display: inline-block;
+  white-space: normal;
+}
