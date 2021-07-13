@@ -1,18 +1,8 @@
-<script>
   class WfCollectionSlider {
-    constructor(setupValues) {
-      setupValues.forEach(arr => {
-        const [cont, time] = arr;
-        [...document.querySelectorAll(`[custom-slider-container="${cont}"]`)].forEach(slider => {
-          initiateSlider(slider, time);
-        });
-      });
-    }
-    
-    initiateSlider(slider, slideChangeTime) {
-      const list = slider.querySelector('[slider-list]');
-      const leftButton = slider.querySelector('[slider-button-left]');
-      const rightButton = slider.querySelector('[slider-button-right]');
+	  static initiateSlider(slider, slideChangeTime) {
+      const list = slider.querySelector('[role="list"]');
+      const leftButton = slider.querySelector('[slider-role="left"]');
+      const rightButton = slider.querySelector('[slider-role="right"]');
 
       rightButton.addEventListener('click', event => {
         let s;
@@ -79,5 +69,18 @@
         }
       }, 300);
     }
+    
+    constructor(setupValues) {
+      setupValues.forEach(arr => {
+        const [cont, time] = arr;
+        [...document.querySelectorAll(`[wfcollection-slider-container="${cont}"]`)].forEach(slider => {
+          WfCollectionSlider.initiateSlider(slider, time);
+        });
+      });
+    }
   }
 </script>
+<script>
+new WfCollectionSlider([
+	['product-images', 400],
+])
